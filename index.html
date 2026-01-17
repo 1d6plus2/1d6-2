@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1d6+2 - Association de Jeux de Société et de Rôle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Avenir', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            height: 80px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e94b3c;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('https://images.unsplash.com/photo-1611371805429-8b5c1b2c34ba?w=1600') center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .next-event {
+            background: white;
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+        }
+
+        .next-event h2 {
+            font-size: 2rem;
+            color: #e94b3c;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #e94b3c;
+            padding-bottom: 1rem;
+        }
+
+        .event-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #e94b3c;
+        }
+
+        .info-box h3 {
+            color: #e94b3c;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-box p {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .blog-section {
+            margin-top: 4rem;
+        }
+
+        .blog-section h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .blog-post img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-content h3 {
+            color: #e94b3c;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .blog-content .date {
+            color: #888;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #e94b3c;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a:hover {
+            color: #e94b3c;
+        }
+
+        .newsletter {
+            margin-top: 1rem;
+        }
+
+        .newsletter input {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        .newsletter button {
+            background-color: #e94b3c;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background-color: #d43b2c;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        .partners-section {
+            margin-top: 4rem;
+        }
+
+        .partners-section h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .partner-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-left: 3px solid #e94b3c;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-left-width: 5px;
+        }
+
+        .partner-card a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .partner-card a:hover {
+            color: #e94b3c;
+        }
+
+        .games-section {
+            margin-top: 4rem;
+        }
+
+        .games-section h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .game-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 3px solid #e94b3c;
+        }
+
+        .game-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .game-card h3 {
+            color: #e94b3c;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .game-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .next-event, .blog-content {
+                padding: 1.5rem;
+            }
+
+            .event-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <img src="https://static.wixstatic.com/media/104788_a9040f388f3c4e64bcfda06c0641ccc2~mv2.png" alt="Logo 1D6+2" class="logo">
+            <nav>
+                <a href="#accueil">Accueil</a>
+                <a href="#prochaine-seance">Prochaine séance</a>
+                <a href="#nos-jeux">Nos jeux</a>
+                <a href="#nos-partenaires">Nos partenaires</a>
+                <a href="#galerie">Galerie</a>
+                <a href="#a-propos">À propos</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Bienvenue chez 1d6+2</h1>
+            <p>Association de Jeux de Société et de Rôle à Courrières</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <section id="prochaine-seance" class="next-event">
+            <h2>Prochaine Séance</h2>
+            
+            <div class="event-info">
+                <div class="info-box">
+                    <h3>📅 Date</h3>
+                    <p>Vendredi 7 Février 2026</p>
+                </div>
+                
+                <div class="info-box">
+                    <h3>🕐 Horaires</h3>
+                    <p>14h00 - 20h00</p>
+                </div>
+                
+                <div class="info-box">
+                    <h3>📍 Lieu</h3>
+                    <p>Médiathèque de Courrières</p>
+                </div>
+                
+                <div class="info-box">
+                    <h3>💰 Tarif</h3>
+                    <p>4€/personne</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; padding: 1.5rem; background: #fff3cd; border-radius: 8px; border-left: 4px solid #ffc107;">
+                <h3 style="color: #856404; margin-bottom: 1rem;">📞 Inscription obligatoire</h3>
+                <p style="color: #856404; line-height: 1.6;">
+                    <strong>Par téléphone :</strong> 06 20 37 37 36 ou 06 22 71 74 49<br>
+                    <strong>Par Messenger :</strong> 1D6+2<br>
+                    <strong>Par email :</strong> und6plus2@outlook.fr
+                </p>
+            </div>
+        </section>
+
+        </section>
+
+        <section id="nos-jeux" class="games-section">
+            <h2>Notre Ludothèque</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666; font-size: 1.1rem;">
+                Explorez tous les jeux de rôle que possède l'association. Que vous soyez débutant ou expert,<br>
+                il y a une multitude d'options pour nourrir votre passion !
+            </p>
+            <p style="text-align: center; margin-bottom: 3rem; color: #888; font-size: 0.95rem; font-style: italic;">
+                ℹ️ D'autres MJ nous rejoignent au fil de l'Aventure, avec leurs propres jeux (jeux de rôle, jeux de plateau...).<br>
+                Ceux-ci ne figurent pas sur notre liste.
+            </p>
+
+            <div class="games-grid">
+                <div class="game-card">
+                    <h3>🗡️ 7ème Mer</h3>
+                    <p>Un jeu de cape et d'épée dans un monde inspiré de l'Europe du XVIIe siècle, mêlant intrigues politiques, duels flamboyants et magie mystérieuse.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>👽 Alien</h3>
+                    <p>Jeu de rôle officiel basé sur la saga cinématographique. Il propose une ambiance de science-fiction horrifique, avec un système de stress et de survie intense.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🌙 Americana</h3>
+                    <p>Un thriller fantastique et onirique dans une Amérique cauchemardesque. Les PJ sont des achromates liés à des entités surnaturelles, dans une campagne tragique et immersive.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🏛️ Antika</h3>
+                    <p>Plonge dans la mythologie grecque antique. Les joueurs incarnent des héros inspirés des épopées homériques, dans un monde où les dieux influencent le destin.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🗿 Arkeos Adventures</h3>
+                    <p>Un jeu pulp d'aventure dans les années 1930, à la Indiana Jones. Les héros affrontent nazis, créatures mythiques et pièges antiques dans des cités perdues.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>⚔️ Awaken</h3>
+                    <p>Dark fantasy dans un monde ravagé par la guerre. Les joueurs incarnent des Vassalis, êtres dotés de pouvoirs surnaturels, confrontés à la corruption et aux conflits politiques.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🏜️ Bitume</h3>
+                    <p>Post-apo à la française, inspiré de Mad Max. Les routes sont reines, les véhicules armés, et les tribus survivent dans un monde ravagé depuis 1986.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>📖 Chroniques Oubliées</h3>
+                    <p>Un système de jeu accessible, décliné en fantasy, contemporain et galactique. Parfait pour l'initiation, avec des règles simplifiées issues du d20 system.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>⏰ Deadline</h3>
+                    <p>Un jeu d'anticipation où les PJ, héritiers d'un empire industriel, tentent de sauver l'humanité d'une onde destructrice prévue en 2082. Campagne en 12 épisodes.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🧒 Donjons & Chenapans</h3>
+                    <p>Version enfantine et humoristique de Donjons & Dragons. Les joueurs incarnent des enfants dans un monde de fantasy, avec des mécaniques adaptées aux plus jeunes.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🐱 Donjons & Chatons</h3>
+                    <p>Parodie mignonne et décalée de Donjons & Dragons, où les personnages sont des chats aventuriers dans un univers fantasy plein de ronrons et de griffes.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🐉 Donjons & Dragons</h3>
+                    <p>Le grand classique du jeu de rôle médiéval-fantastique. Les joueurs incarnent des aventuriers dans un monde peuplé de monstres, de magie et de quêtes épiques.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>😈 Doom</h3>
+                    <p>Adaptation non officielle du jeu vidéo. Les joueurs incarnent des soldats affrontant des hordes démoniaques dans une ambiance gore et frénétique.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🐲 Dragons</h3>
+                    <p>Une alternative immersive à D&D, avec des règles détaillées et un univers riche.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🗺️ Dragons Conquer America</h3>
+                    <p>Uchronie fantastique du XVIe siècle où conquistadors et peuples mésoaméricains s'affrontent avec l'aide de dragons et de magie.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🌸 Draconis</h3>
+                    <p>Un jeu de rôle feel-good inspiré de l'univers du studio Ghibli. On y incarne des enfants liés à des dragons dans un monde onirique et poétique.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🏰 Dungeon Crawl Classics (DCC)</h3>
+                    <p>Un jeu de rôle old-school qui rend hommage aux débuts du JDR, mêlant exploration de donjons, magie chaotique et ambiance pulp, avec des mécaniques simples mais brutales.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🔮 Éléusis</h3>
+                    <p>Jeu contemporain ésotérique où les joueurs incarnent des Mystes capables de remodeler le destin. Un jeu de pouvoir, d'influence et de conséquences.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🇫🇷 Étrange France</h3>
+                    <p>Urban fantasy dans la France de 1989. Les PJ sont membres d'agences enquêtant sur le surnaturel, dans un monde où les légendes prennent vie.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>☢️ Fallout</h3>
+                    <p>Adaptation du jeu vidéo. Les joueurs explorent un monde post-apocalyptique rétrofuturiste, entre ruines irradiées, mutants et factions en guerre.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🗺️ Fateforge</h3>
+                    <p>Univers de fantasy riche et détaillé, compatible avec la 5e édition de D&D. Il propose une approche modulaire de la magie, des races et des cultures.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>👻 Ghostbusters</h3>
+                    <p>Un jeu de rôle humoristique et accessible, inspiré du film culte de 1984. Les joueurs incarnent des chasseurs de fantômes dans un univers urbain déjanté.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🎬 Hellywood</h3>
+                    <p>Un jeu noir et fantastique dans une ville des années 1940 envahie par des démons. Ambiance hardboiled, corruption et pactes infernaux.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>⚙️ Iron Kingdom</h3>
+                    <p>Mélange de fantasy et de steampunk. Les PJ évoluent dans un monde ravagé par la guerre, peuplé de machines magiques et de dragons mécaniques.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>💎 Krystal</h3>
+                    <p>Post-apo écologique où les PJ sont des Hérauts guidés par un cristal mystérieux. Ils cherchent à apaiser la nature dans un monde ravagé.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🚀 La Bannière de la Liberté</h3>
+                    <p>Space fantasy dieselpunk. Les joueurs incarnent des pirates de l'espace luttant contre des régimes totalitaires dans un univers inspiré de Flash Gordon et Albator.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🦑 L'Appel de Cthulhu</h3>
+                    <p>Jeu d'horreur inspiré de Lovecraft. Les PJ enquêtent sur des mystères occultes et affrontent des entités cosmiques au prix de leur santé mentale.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>👑 Legacy of the Crown</h3>
+                    <p>Jeu de rôle steampunk horrifique se déroulant dans un Royaume-Uni victorien alternatif. Les joueurs incarnent des agents au service de la Reine Victoria, confrontés à la Rouille.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🌌 Lore & Legacy</h3>
+                    <p>Science-fantasy dans un monde où plusieurs peuples venus des étoiles cohabitent. Exploration, mystères anciens et technologie oubliée sont au cœur du jeu.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🔪 Monster of the Week</h3>
+                    <p>Inspiré des séries comme Buffy ou Supernatural. Les joueurs incarnent des chasseurs de monstres dans un monde contemporain, avec un système narratif PbtA.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>😂 Naheulbeuk</h3>
+                    <p>Parodie de fantasy médiévale. Les joueurs incarnent des aventuriers incompétents dans un monde absurde et hilarant, issu de la saga audio culte.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🐙 Nautilus</h3>
+                    <p>Jeu d'aventure sous-marine inspiré de Jules Verne. Les PJ sont membres du Nautilus, explorant les abysses et affrontant des menaces mystérieuses.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🤖 Omega</h3>
+                    <p>Jeu de science-fiction où les joueurs incarnent des machines conscientes dans une société post-humaine. Exploration, conflits de firmes et dilemmes robotiques.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🧟 Resident Evil</h3>
+                    <p>Adaptation non officielle du jeu vidéo. Les PJ affrontent des zombies et des conspirations biologiques dans un monde contemporain en crise.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>⚡ RuneQuest</h3>
+                    <p>Un des piliers du JdR. Les joueurs évoluent dans Glorantha, un monde mythologique où la magie et les dieux sont omniprésents.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🖤 Sans Cœur</h3>
+                    <p>Dark fantasy gothique. Les PJ sont des héros morts revenus pour sauver un royaume corrompu. Inspiré de Dark Souls, avec une mécanique de temps limité.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🎲 Tiny</h3>
+                    <p>Jeu de rôle pour enfants où les joueurs incarnent des jouets, des animaux ou des créatures mignonnes dans des aventures pleines d'imagination.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🌍 Terre²</h3>
+                    <p>Uchronie contemporaine où les PJ incarnent des surhumains dans un monde alternatif dominé par des monarchies et des firmes secrètes.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>📺 Trucs Trop Bizarre</h3>
+                    <p>JDR inspiré de Stranger Things. Les joueurs incarnent des ados dans les années 80 confrontés à des phénomènes paranormaux.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🪄 Tu es un sorcier / Harry Potter</h3>
+                    <p>Jeu non officiel inspiré de l'univers de J.K. Rowling. Les joueurs incarnent des élèves dans une école de magie, entre cours, mystères et créatures magiques.</p>
+                </div>
+                
+                <div class="game-card">
+                    <h3>🧟‍♂️ Zombicide</h3>
+                    <p>Adaptation JDR du jeu de plateau. Les joueurs incarnent des survivants dans un monde infesté de zombies, avec des scénarios coopératifs et tactiques.</p>
+                </div>
+            </div>
+
+            <div style="background: #fff3cd; padding: 2rem; border-radius: 8px; margin-top: 3rem; border-left: 4px solid #ffc107;">
+                <h3 style="color: #856404; margin-bottom: 1rem;">📚 Jeux de Société</h3>
+                <p style="color: #856404;">
+                    Notre collection de jeux de société est en cours de recensement. Revenez bientôt pour découvrir tous nos jeux de plateau !
+                </p>
+            </div>
+        </section>
+
+        <section id="nos-partenaires" class="partners-section">
+            <h2>Nos Partenaires</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666; font-size: 1.1rem;">
+                Encore un énorme merci à eux de nous accorder leur confiance !<br>
+                N'hésitez pas à visiter leurs sites et pages.
+            </p>
+
+            <div style="background: white; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #e94b3c; text-align: center; margin-bottom: 1rem;">🎖️ Notre Parrain</h3>
+                <p style="text-align: center; font-size: 1.1rem;">
+                    <strong><a href="https://www.facebook.com/Waretrofr" target="_blank" style="color: #e94b3c; text-decoration: none;">WARETRO</a></strong><br>
+                    <a href="https://adegremont59.wixsite.com/warmelinworld" target="_blank" style="color: #666; font-size: 0.9rem;">Visitez le site de WARETRO</a>
+                </p>
+            </div>
+
+            <div class="partners-grid">
+                <div class="partner-card"><a href="https://3dndprint.com/" target="_blank">3DnDPrint</a></div>
+                <div class="partner-card"><a href="https://antikajdr.fr/" target="_blank">Antika JDR</a></div>
+                <div class="partner-card"><a href="https://www.facebook.com/p/Latelier-de-Fenrir-100064814140282/" target="_blank">Atelier de Fenrir</a></div>
+                <div class="partner-card"><a href="https://www.cajeclub.com/" target="_blank">CAJE</a></div>
+                <div class="partner-card"><a href="https://calloutthegame.com/" target="_blank">Call Out</a></div>
+                <div class="partner-card"><a href="https://cap-games.fr/" target="_blank">CapGames</a></div>
+                <div class="partner-card"><a href="https://clashofdecks.com/fr" target="_blank">Clash of Decks</a></div>
+                <div class="partner-card"><a href="http://coupdusort.com" target="_blank">Coup du Sort</a></div>
+                <div class="partner-card"><a href="https://www.etsy.com/fr/shop/CraftSurTable" target="_blank">Craft sur Table</a></div>
+                <div class="partner-card"><a href="https://www.facebook.com/DungeonofFitness" target="_blank">Dungeon of Fitness</a></div>
+                <div class="partner-card"><a href="https://www.ducoqalanejeuxetjouets.fr/" target="_blank">Du coq à l'âne</a></div>
+                <div class="partner-card"><a href="https://empyreal.pirou.games/" target="_blank">Empyreal Media Productions</a></div>
+                <div class="partner-card"><a href="https://www.editionsepicourien.fr/" target="_blank">Epic ou Rien</a></div>
+                <div class="partner-card"><a href="https://explorgames.com/" target="_blank">Explor Games</a></div>
+                <div class="partner-card"><a href="https://www.facebook.com/FairePlayEditions/" target="_blank">Faire Play Editions</a></div>
+                <div class="partner-card"><a href="https://www.forg3d.fr/" target="_blank">Forg3D</a></div>
+                <div class="partner-card"><a href="http://www.jdreditions.com/" target="_blank">JDR Editions</a></div>
+                <div class="partner-card"><a href="https://johndoe-rpg.com/" target="_blank">John Doe Editions</a></div>
+                <div class="partner-card"><a href="https://kytnplay.com/" target="_blank">Kyt'N'Play</a></div>
+                <div class="partner-card"><a href="https://www.facebook.com/Rabiotsman" target="_blank">La boite à Rabiots</a></div>
+                <div class="partner-card"><a href="https://www.instagram.com/legacyofthecrown" target="_blank">Legacy Of The Crown</a></div>
+                <div class="partner-card"><a href="https://www.legrimoire.net/" target="_blank">Le Grimoire</a></div>
+                <div class="partner-card"><a href="https://hircus-jdr.com/" target="_blank">Les Dés d'Hircus</a></div>
+                <div class="partner-card"><a href="https://www.archiformatique.fr/les-impressions-3d-d-archi" target="_blank">Les impressions 3D d'Archi</a></div>
+                <div class="partner-card"><a href="https://www.les12singes.com/" target="_blank">Les XII Singes</a></div>
+                <div class="partner-card"><a href="https://limitelimite.com/" target="_blank">Limite limite</a></div>
+                <div class="partner-card"><a href="https://www.ludistri.fr/" target="_blank">Ludistri</a></div>
+                <div class="partner-card"><a href="https://www.ludonaute.fr/" target="_blank">Ludonaute</a></div>
+                <div class="partner-card"><a href="https://odonata-editions.fr/" target="_blank">Odonata Editions</a></div>
+                <div class="partner-card"><a href="https://passetontourgames.com/" target="_blank">Passe ton tour Games</a></div>
+                <div class="partner-card"><a href="https://www.pigeonpigeon.fr/" target="_blank">Pigeon Pigeon</a></div>
+                <div class="partner-card"><a href="https://platoniagames.com/" target="_blank">Platonia Games</a></div>
+                <div class="partner-card"><a href="https://playmats.eu/" target="_blank">Playmats</a></div>
+                <div class="partner-card"><a href="https://proxywars.us/" target="_blank">Proxywars</a></div>
+                <div class="partner-card"><a href="https://rafiot-fringant.com/" target="_blank">Rafiot Fringuant</a></div>
+                <div class="partner-card"><a href="https://rollandplaypress.com/" target="_blank">Roll & Play Press</a></div>
+                <div class="partner-card"><a href="https://savana-games.com/" target="_blank">Savana</a></div>
+                <div class="partner-card"><a href="https://www.spacecow.fr/" target="_blank">Space Cow</a></div>
+                <div class="partner-card"><a href="https://www.spacecowboys.fr/" target="_blank">Space Cowboys</a></div>
+                <div class="partner-card"><a href="https://www.stratemats.com/" target="_blank">Stratemats</a></div>
+                <div class="partner-card"><a href="https://www.studio-agate.com/fr" target="_blank">Studio Agate</a></div>
+                <div class="partner-card"><a href="https://www.deadcrows.net/" target="_blank">Studio Deadcrows</a></div>
+                <div class="partner-card"><a href="https://swaks-game.com/" target="_blank">Swaks Game</a></div>
+                <div class="partner-card"><a href="https://blam-edition.com/produit/terre2/" target="_blank">Terre²</a></div>
+                <div class="partner-card"><a href="https://thedicetroyers.com/" target="_blank">The DiceTroyers</a></div>
+                <div class="partner-card"><a href="https://thehoard.co/" target="_blank">The Hoard</a></div>
+                <div class="partner-card"><a href="https://trolllord.com/" target="_blank">Troll Lord Game</a></div>
+                <div class="partner-card"><a href="https://wargamespirit.fr/" target="_blank">Wargame Spirit</a></div>
+                <div class="partner-card"><a href="https://www.wargamerminis.com/fr" target="_blank">Wargamer Minis</a></div>
+            </div>
+        </section>
+
+        <section class="blog-section">
+            <h2>Dernières actualités</h2>
+            <div class="blog-posts">
+                <div class="blog-post">
+                    <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=600" alt="Jeux de rôle">
+                    <div class="blog-content">
+                        <h3>Séance de Février 2026</h3>
+                        <p class="date">7 Février 2026</p>
+                        <p>Rejoignez-nous pour une après-midi/soirée de jeux de rôle et de société ! Au programme : D&D, Chroniques Oubliées, et bien d'autres...</p>
+                    </div>
+                </div>
+
+                <div class="blog-post">
+                    <img src="https://images.unsplash.com/photo-1632501641765-e568d28b0015?w=600" alt="Dés">
+                    <div class="blog-content">
+                        <h3>À propos de 1d6+2</h3>
+                        <p class="date">Association</p>
+                        <p>Nous sommes une association passionnée basée à Courrières, dédiée aux jeux de société et jeux de rôle pour tous les âges et tous les niveaux.</p>
+                    </div>
+                </div>
+
+                <div class="blog-post">
+                    <img src="https://images.unsplash.com/photo-1611371805429-8b5c1b2c34ba?w=600" alt="Plateau de jeu">
+                    <div class="blog-content">
+                        <h3>Notre ludothèque</h3>
+                        <p class="date">Nos jeux</p>
+                        <p>Découvrez notre collection de jeux de société et de rôle : D&D, Chroniques Oubliées, Shadowdark, et bien d'autres titres pour tous les goûts !</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>1d6+2</h3>
+                <p>Association de Jeux de Société<br>et de Jeux de Rôle</p>
+                <p style="margin-top: 1rem;">
+                    📍 23D, rue Casimir Beugnet<br>
+                    62710 Courrières
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>
+                    📞 06 20 37 37 36<br>
+                    📞 06 22 71 74 49<br>
+                    ✉️ <a href="mailto:und6plus2@outlook.fr">und6plus2@outlook.fr</a>
+                </p>
+                <p style="margin-top: 1rem;">
+                    <a href="https://www.facebook.com/1d6plus2" target="_blank">📘 Facebook</a><br>
+                    <a href="https://linktr.ee/und6plus2" target="_blank">🔗 Tous nos liens</a>
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Newsletter</h3>
+                <p>Ne manquez aucune actualité</p>
+                <div class="newsletter">
+                    <input type="email" placeholder="Votre email">
+                    <button>Rejoindre</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Association 1d6+2 - Tous droits réservés</p>
+        </div>
+    </footer>
+</body>
+</html>
