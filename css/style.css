@@ -110,7 +110,7 @@ nav a.active {
 /* ===== HERO SECTION ===== */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                url('https://images.unsplash.com/photo-1611371805429-8b5c1b2c34ba?w=1600') center/cover;
+                url('dnd.jpg') center/cover;
     height: 500px;
     display: flex;
     align-items: center;
