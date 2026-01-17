@@ -6,6 +6,36 @@
     <meta name="description" content="Notre ludothèque - Jeux de rôle et jeux de société - Association 1d6+2">
     <title>Nos Jeux - 1d6+2</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .game-card {
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .game-card::after {
+            content: '🔗';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .game-card:hover::after {
+            opacity: 0.5;
+        }
+        
+        .game-card h3 a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .game-card:hover h3 a {
+            color: #e94b3c;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -33,212 +63,213 @@
             </p>
             <p class="text-center" style="color: #888; font-size: 0.95rem; font-style: italic; margin-bottom: 3rem;">
                 ℹ️ D'autres MJ nous rejoignent au fil de l'Aventure, avec leurs propres jeux (jeux de rôle, jeux de plateau...).<br>
-                Ceux-ci ne figurent pas sur notre liste.
+                Ceux-ci ne figurent pas sur notre liste. <br><br>
+                💡 <strong>Cliquez sur un jeu pour en savoir plus !</strong>
             </p>
 
             <div class="games-grid">
                 <div class="game-card">
-                    <h3>🗡️ 7ème Mer</h3>
+                    <h3><a href="https://www.legrog.org/jeux/7e-mer" target="_blank">🗡️ 7ème Mer</a></h3>
                     <p>Un jeu de cape et d'épée dans un monde inspiré de l'Europe du XVIIe siècle, mêlant intrigues politiques, duels flamboyants et magie mystérieuse.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>👽 Alien</h3>
+                    <h3><a href="https://www.legrog.org/jeux/alien-le-jeu-de-role" target="_blank">👽 Alien</a></h3>
                     <p>Jeu de rôle officiel basé sur la saga cinématographique. Il propose une ambiance de science-fiction horrifique, avec un système de stress et de survie intense.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🌙 Americana</h3>
+                    <h3><a href="https://www.legrog.org/jeux/americana" target="_blank">🌙 Americana</a></h3>
                     <p>Un thriller fantastique et onirique dans une Amérique cauchemardesque. Les PJ sont des achromates liés à des entités surnaturelles, dans une campagne tragique et immersive.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🏛️ Antika</h3>
+                    <h3><a href="https://antikajdr.fr" target="_blank">🏛️ Antika</a></h3>
                     <p>Plonge dans la mythologie grecque antique. Les joueurs incarnent des héros inspirés des épopées homériques, dans un monde où les dieux influencent le destin.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🗿 Arkeos Adventures</h3>
+                    <h3><a href="https://www.legrog.org/jeux/arkeos-adventures" target="_blank">🗿 Arkeos Adventures</a></h3>
                     <p>Un jeu pulp d'aventure dans les années 1930, à la Indiana Jones. Les héros affrontent nazis, créatures mythiques et pièges antiques dans des cités perdues.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>⚔️ Awaken</h3>
+                    <h3><a href="https://www.legrog.org/jeux/awaken" target="_blank">⚔️ Awaken</a></h3>
                     <p>Dark fantasy dans un monde ravagé par la guerre. Les joueurs incarnent des Vassalis, êtres dotés de pouvoirs surnaturels, confrontés à la corruption et aux conflits politiques.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🏜️ Bitume</h3>
+                    <h3><a href="https://www.legrog.org/jeux/bitume" target="_blank">🏜️ Bitume</a></h3>
                     <p>Post-apo à la française, inspiré de Mad Max. Les routes sont reines, les véhicules armés, et les tribus survivent dans un monde ravagé depuis 1986.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>📖 Chroniques Oubliées</h3>
+                    <h3><a href="https://www.black-book-editions.fr/catalogue.php?id=558" target="_blank">📖 Chroniques Oubliées</a></h3>
                     <p>Un système de jeu accessible, décliné en fantasy, contemporain et galactique. Parfait pour l'initiation, avec des règles simplifiées issues du d20 system.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>⏰ Deadline</h3>
+                    <h3><a href="https://www.legrog.org/jeux/deadline" target="_blank">⏰ Deadline</a></h3>
                     <p>Un jeu d'anticipation où les PJ, héritiers d'un empire industriel, tentent de sauver l'humanité d'une onde destructrice prévue en 2082. Campagne en 12 épisodes.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🧒 Donjons & Chenapans</h3>
+                    <h3><a href="https://www.legrog.org/jeux/donjons-et-chenapans" target="_blank">🧒 Donjons & Chenapans</a></h3>
                     <p>Version enfantine et humoristique de Donjons & Dragons. Les joueurs incarnent des enfants dans un monde de fantasy, avec des mécaniques adaptées aux plus jeunes.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🐱 Donjons & Chatons</h3>
+                    <h3><a href="https://www.deadcrows.net" target="_blank">🐱 Donjons & Chatons</a></h3>
                     <p>Parodie mignonne et décalée de Donjons & Dragons, où les personnages sont des chats aventuriers dans un univers fantasy plein de ronrons et de griffes.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🐉 Donjons & Dragons</h3>
+                    <h3><a href="https://black-book-editions.fr/catalogue.php?id=436" target="_blank">🐉 Donjons & Dragons</a></h3>
                     <p>Le grand classique du jeu de rôle médiéval-fantastique. Les joueurs incarnent des aventuriers dans un monde peuplé de monstres, de magie et de quêtes épiques.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>😈 Doom</h3>
+                    <h3><a href="https://www.legrog.org/jeux/doom" target="_blank">😈 Doom</a></h3>
                     <p>Adaptation non officielle du jeu vidéo. Les joueurs incarnent des soldats affrontant des hordes démoniaques dans une ambiance gore et frénétique.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🐲 Dragons</h3>
+                    <h3><a href="https://www.dragons-rpg.com" target="_blank">🐲 Dragons</a></h3>
                     <p>Une alternative immersive à D&D, avec des règles détaillées et un univers riche.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🗺️ Dragons Conquer America</h3>
+                    <h3><a href="https://www.legrog.org/jeux/dragons-conquer-america" target="_blank">🗺️ Dragons Conquer America</a></h3>
                     <p>Uchronie fantastique du XVIe siècle où conquistadors et peuples mésoaméricains s'affrontent avec l'aide de dragons et de magie.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🌸 Draconis</h3>
+                    <h3><a href="https://www.legrog.org/jeux/draconis" target="_blank">🌸 Draconis</a></h3>
                     <p>Un jeu de rôle feel-good inspiré de l'univers du studio Ghibli. On y incarne des enfants liés à des dragons dans un monde onirique et poétique.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🏰 Dungeon Crawl Classics (DCC)</h3>
+                    <h3><a href="https://www.legrog.org/jeux/dungeon-crawl-classics" target="_blank">🏰 Dungeon Crawl Classics (DCC)</a></h3>
                     <p>Un jeu de rôle old-school qui rend hommage aux débuts du JDR, mêlant exploration de donjons, magie chaotique et ambiance pulp, avec des mécaniques simples mais brutales.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🔮 Éléusis</h3>
+                    <h3><a href="https://www.legrog.org/jeux/eleusis" target="_blank">🔮 Éléusis</a></h3>
                     <p>Jeu contemporain ésotérique où les joueurs incarnent des Mystes capables de remodeler le destin. Un jeu de pouvoir, d'influence et de conséquences.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🇫🇷 Étrange France</h3>
+                    <h3><a href="https://www.legrog.org/jeux/etrange-france" target="_blank">🇫🇷 Étrange France</a></h3>
                     <p>Urban fantasy dans la France de 1989. Les PJ sont membres d'agences enquêtant sur le surnaturel, dans un monde où les légendes prennent vie.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>☢️ Fallout</h3>
+                    <h3><a href="https://www.legrog.org/jeux/fallout-le-jeu-de-role" target="_blank">☢️ Fallout</a></h3>
                     <p>Adaptation du jeu vidéo. Les joueurs explorent un monde post-apocalyptique rétrofuturiste, entre ruines irradiées, mutants et factions en guerre.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🗺️ Fateforge</h3>
+                    <h3><a href="https://www.studio-agate.com/fateforge" target="_blank">🗺️ Fateforge</a></h3>
                     <p>Univers de fantasy riche et détaillé, compatible avec la 5e édition de D&D. Il propose une approche modulaire de la magie, des races et des cultures.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>👻 Ghostbusters</h3>
+                    <h3><a href="https://www.legrog.org/jeux/ghostbusters" target="_blank">👻 Ghostbusters</a></h3>
                     <p>Un jeu de rôle humoristique et accessible, inspiré du film culte de 1984. Les joueurs incarnent des chasseurs de fantômes dans un univers urbain déjanté.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🎬 Hellywood</h3>
+                    <h3><a href="https://www.legrog.org/jeux/hellywood" target="_blank">🎬 Hellywood</a></h3>
                     <p>Un jeu noir et fantastique dans une ville des années 1940 envahie par des démons. Ambiance hardboiled, corruption et pactes infernaux.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>⚙️ Iron Kingdom</h3>
+                    <h3><a href="https://www.legrog.org/jeux/iron-kingdoms" target="_blank">⚙️ Iron Kingdom</a></h3>
                     <p>Mélange de fantasy et de steampunk. Les PJ évoluent dans un monde ravagé par la guerre, peuplé de machines magiques et de dragons mécaniques.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>💎 Krystal</h3>
+                    <h3><a href="https://www.les12singes.com/43-krystal" target="_blank">💎 Krystal</a></h3>
                     <p>Post-apo écologique où les PJ sont des Hérauts guidés par un cristal mystérieux. Ils cherchent à apaiser la nature dans un monde ravagé.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🚀 La Bannière de la Liberté</h3>
+                    <h3><a href="https://www.legrog.org/jeux/la-banniere-de-la-liberte" target="_blank">🚀 La Bannière de la Liberté</a></h3>
                     <p>Space fantasy dieselpunk. Les joueurs incarnent des pirates de l'espace luttant contre des régimes totalitaires dans un univers inspiré de Flash Gordon et Albator.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🦑 L'Appel de Cthulhu</h3>
+                    <h3><a href="https://www.legrog.org/jeux/l-appel-de-cthulhu-7e-edition" target="_blank">🦑 L'Appel de Cthulhu</a></h3>
                     <p>Jeu d'horreur inspiré de Lovecraft. Les PJ enquêtent sur des mystères occultes et affrontent des entités cosmiques au prix de leur santé mentale.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>👑 Legacy of the Crown</h3>
+                    <h3><a href="https://www.instagram.com/legacyofthecrown" target="_blank">👑 Legacy of the Crown</a></h3>
                     <p>Jeu de rôle steampunk horrifique se déroulant dans un Royaume-Uni victorien alternatif. Les joueurs incarnent des agents au service de la Reine Victoria, confrontés à la Rouille.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🌌 Lore & Legacy</h3>
+                    <h3><a href="https://www.legrog.org/jeux/lore-legacy" target="_blank">🌌 Lore & Legacy</a></h3>
                     <p>Science-fantasy dans un monde où plusieurs peuples venus des étoiles cohabitent. Exploration, mystères anciens et technologie oubliée sont au cœur du jeu.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🔪 Monster of the Week</h3>
+                    <h3><a href="https://www.legrog.org/jeux/monster-of-the-week" target="_blank">🔪 Monster of the Week</a></h3>
                     <p>Inspiré des séries comme Buffy ou Supernatural. Les joueurs incarnent des chasseurs de monstres dans un monde contemporain, avec un système narratif PbtA.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>😂 Naheulbeuk</h3>
+                    <h3><a href="https://www.legrog.org/jeux/naheulbeuk-le-jeu-de-role" target="_blank">😂 Naheulbeuk</a></h3>
                     <p>Parodie de fantasy médiévale. Les joueurs incarnent des aventuriers incompétents dans un monde absurde et hilarant, issu de la saga audio culte.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🐙 Nautilus</h3>
+                    <h3><a href="https://www.legrog.org/jeux/nautilus" target="_blank">🐙 Nautilus</a></h3>
                     <p>Jeu d'aventure sous-marine inspiré de Jules Verne. Les PJ sont membres du Nautilus, explorant les abysses et affrontant des menaces mystérieuses.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🤖 Omega</h3>
+                    <h3><a href="https://www.legrog.org/jeux/omega" target="_blank">🤖 Omega</a></h3>
                     <p>Jeu de science-fiction où les joueurs incarnent des machines conscientes dans une société post-humaine. Exploration, conflits de firmes et dilemmes robotiques.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🧟 Resident Evil</h3>
+                    <h3><a href="https://www.legrog.org/jeux/resident-evil" target="_blank">🧟 Resident Evil</a></h3>
                     <p>Adaptation non officielle du jeu vidéo. Les PJ affrontent des zombies et des conspirations biologiques dans un monde contemporain en crise.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>⚡ RuneQuest</h3>
+                    <h3><a href="https://www.legrog.org/jeux/runequest" target="_blank">⚡ RuneQuest</a></h3>
                     <p>Un des piliers du JdR. Les joueurs évoluent dans Glorantha, un monde mythologique où la magie et les dieux sont omniprésents.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🖤 Sans Cœur</h3>
+                    <h3><a href="https://www.legrog.org/jeux/sans-coeur" target="_blank">🖤 Sans Cœur</a></h3>
                     <p>Dark fantasy gothique. Les PJ sont des héros morts revenus pour sauver un royaume corrompu. Inspiré de Dark Souls, avec une mécanique de temps limité.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🎲 Tiny</h3>
+                    <h3><a href="https://www.legrog.org/jeux/tiny-dungeon-2e-edition" target="_blank">🎲 Tiny</a></h3>
                     <p>Jeu de rôle pour enfants où les joueurs incarnent des jouets, des animaux ou des créatures mignonnes dans des aventures pleines d'imagination.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🌍 Terre²</h3>
+                    <h3><a href="https://blam-edition.com/produit/terre2/" target="_blank">🌍 Terre²</a></h3>
                     <p>Uchronie contemporaine où les PJ incarnent des surhumains dans un monde alternatif dominé par des monarchies et des firmes secrètes.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>📺 Trucs Trop Bizarre</h3>
+                    <h3><a href="https://www.legrog.org/jeux/trucs-trop-bizarre" target="_blank">📺 Trucs Trop Bizarre</a></h3>
                     <p>JDR inspiré de Stranger Things. Les joueurs incarnent des ados dans les années 80 confrontés à des phénomènes paranormaux.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🪄 Tu es un sorcier / Harry Potter</h3>
+                    <h3><a href="https://www.legrog.org/jeux/harry-potter-jdr" target="_blank">🪄 Tu es un sorcier / Harry Potter</a></h3>
                     <p>Jeu non officiel inspiré de l'univers de J.K. Rowling. Les joueurs incarnent des élèves dans une école de magie, entre cours, mystères et créatures magiques.</p>
                 </div>
                 
                 <div class="game-card">
-                    <h3>🧟‍♂️ Zombicide</h3>
+                    <h3><a href="https://www.legrog.org/jeux/zombicide-le-jeu-de-role" target="_blank">🧟‍♂️ Zombicide</a></h3>
                     <p>Adaptation JDR du jeu de plateau. Les joueurs incarnent des survivants dans un monde infesté de zombies, avec des scénarios coopératifs et tactiques.</p>
                 </div>
             </div>
