@@ -283,36 +283,284 @@ nav a.active {
 }
 
 /* ===== PARTNERS GRID ===== */
+/* ===== PARTNERS GRID AVEC LOGOS - VERSION FINALE COMPLÈTE ===== */
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
 }
 
 .partner-card {
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 2.5rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     text-align: center;
-    transition: var(--transition);
-    border-left: 3px solid var(--primary-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid var(--primary-color);
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fond logo en filigrane */
+.partner-card::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.08;
+    transition: all 0.3s ease;
+    z-index: 0;
+}
+
+.partner-card:hover::before {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(1.08);
 }
 
 .partner-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
-    border-left-width: 5px;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(233, 75, 60, 0.2);
+    border-left-width: 6px;
+    background: linear-gradient(135deg, #ffffff 0%, #fff5f4 100%);
 }
 
 .partner-card a {
     color: var(--text-dark);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 10px rgba(255,255,255,0.9);
+    transition: all 0.3s ease;
 }
 
 .partner-card a:hover {
     color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* ===== LOGOS DES PARTENAIRES ===== */
+
+/* LOGOS TROUVÉS - Sites officiels */
+.partner-card[data-partner="studio-agate"]::before {
+    background-image: url('/build/agate/logo_agate_studio_words.png');
+}
+
+.partner-card[data-partner="les-12-singes"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="%23e94b3c" text-anchor="middle">Les XII Singes</text></svg>');
+}
+
+.partner-card[data-partner="john-doe"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="%23e94b3c" text-anchor="middle">JOHN DOE</text></svg>');
+}
+
+.partner-card[data-partner="deadcrows"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="%23e94b3c" text-anchor="middle">STUDIO DEADCROWS</text></svg>');
+}
+
+.partner-card[data-partner="space-cowboys"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="%23e94b3c" text-anchor="middle">SPACE COWBOYS</text></svg>');
+}
+
+.partner-card[data-partner="ludonaute"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="%23e94b3c" text-anchor="middle">LUDONAUTE</text></svg>');
+}
+
+.partner-card[data-partner="platonia"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="%23e94b3c" text-anchor="middle">PLATONIA GAMES</text></svg>');
+}
+
+.partner-card[data-partner="explor-games"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="%23e94b3c" text-anchor="middle">EXPLOR GAMES</text></svg>');
+}
+
+.partner-card[data-partner="forg3d"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="%23e94b3c" text-anchor="middle">FORG3D</text></svg>');
+}
+
+.partner-card[data-partner="3dndprint"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="%23e94b3c" text-anchor="middle">3DnDPrint</text></svg>');
+}
+
+.partner-card[data-partner="antika"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="%23e94b3c" text-anchor="middle">ANTIKA</text></svg>');
+}
+
+.partner-card[data-partner="odonata"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="%23e94b3c" text-anchor="middle">ODONATA</text></svg>');
+}
+
+.partner-card[data-partner="hircus"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="%23e94b3c" text-anchor="middle">Les Dés d\'Hircus</text></svg>');
+}
+
+.partner-card[data-partner="pigeon-pigeon"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="%23e94b3c" text-anchor="middle">PIGEON PIGEON</text></svg>');
+}
+
+.partner-card[data-partner="le-grimoire"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="%23e94b3c" text-anchor="middle">LE GRIMOIRE</text></svg>');
+}
+
+.partner-card[data-partner="ludistri"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="%23e94b3c" text-anchor="middle">LUDISTRI</text></svg>');
+}
+
+.partner-card[data-partner="du-coq"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="%23e94b3c" text-anchor="middle">Du coq à l\'âne</text></svg>');
+}
+
+.partner-card[data-partner="capgames"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="%23e94b3c" text-anchor="middle">CAPGAMES</text></svg>');
+}
+
+.partner-card[data-partner="epic-ou-rien"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="%23e94b3c" text-anchor="middle">EPIC OU RIEN</text></svg>');
+}
+
+.partner-card[data-partner="kytnplay"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="%23e94b3c" text-anchor="middle">KYT\'N\'PLAY</text></svg>');
+}
+
+.partner-card[data-partner="savana"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="%23e94b3c" text-anchor="middle">SAVANA</text></svg>');
+}
+
+.partner-card[data-partner="playmats"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="%23e94b3c" text-anchor="middle">PLAYMATS</text></svg>');
+}
+
+.partner-card[data-partner="stratemats"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="%23e94b3c" text-anchor="middle">STRATEMATS</text></svg>');
+}
+
+.partner-card[data-partner="wargamer-minis"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="%23e94b3c" text-anchor="middle">WARGAMER MINIS</text></svg>');
+}
+
+.partner-card[data-partner="dicetroyers"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="%23e94b3c" text-anchor="middle">THE DICETROYERS</text></svg>');
+}
+
+.partner-card[data-partner="caje"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="%23e94b3c" text-anchor="middle">CAJE</text></svg>');
+}
+
+.partner-card[data-partner="callout"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="%23e94b3c" text-anchor="middle">CALL OUT</text></svg>');
+}
+
+.partner-card[data-partner="clash-of-decks"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="%23e94b3c" text-anchor="middle">CLASH OF DECKS</text></svg>');
+}
+
+.partner-card[data-partner="coup-du-sort"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="%23e94b3c" text-anchor="middle">COUP DU SORT</text></svg>');
+}
+
+.partner-card[data-partner="craft-sur-table"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="%23e94b3c" text-anchor="middle">CRAFT SUR TABLE</text></svg>');
+}
+
+.partner-card[data-partner="dungeon-fitness"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="%23e94b3c" text-anchor="middle">DUNGEON FITNESS</text></svg>');
+}
+
+.partner-card[data-partner="empyreal"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="%23e94b3c" text-anchor="middle">EMPYREAL</text></svg>');
+}
+
+.partner-card[data-partner="faire-play"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="%23e94b3c" text-anchor="middle">FAIRE PLAY</text></svg>');
+}
+
+.partner-card[data-partner="jdr-editions"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="%23e94b3c" text-anchor="middle">JDR EDITIONS</text></svg>');
+}
+
+.partner-card[data-partner="rabiots"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="%23e94b3c" text-anchor="middle">LA BOITE À RABIOTS</text></svg>');
+}
+
+.partner-card[data-partner="legacy-crown"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="%23e94b3c" text-anchor="middle">LEGACY OF THE CROWN</text></svg>');
+}
+
+.partner-card[data-partner="archi-3d"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="%23e94b3c" text-anchor="middle">IMPRESSIONS 3D ARCHI</text></svg>');
+}
+
+.partner-card[data-partner="atelier-fenrir"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="%23e94b3c" text-anchor="middle">ATELIER DE FENRIR</text></svg>');
+}
+
+.partner-card[data-partner="limite-limite"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="%23e94b3c" text-anchor="middle">LIMITE LIMITE</text></svg>');
+}
+
+.partner-card[data-partner="passe-ton-tour"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="%23e94b3c" text-anchor="middle">PASSE TON TOUR</text></svg>');
+}
+
+.partner-card[data-partner="proxywars"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="%23e94b3c" text-anchor="middle">PROXYWARS</text></svg>');
+}
+
+.partner-card[data-partner="rafiot"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="%23e94b3c" text-anchor="middle">RAFIOT FRINGUANT</text></svg>');
+}
+
+.partner-card[data-partner="roll-play"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="%23e94b3c" text-anchor="middle">ROLL & PLAY PRESS</text></svg>');
+}
+
+.partner-card[data-partner="space-cow"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="%23e94b3c" text-anchor="middle">SPACE COW</text></svg>');
+}
+
+.partner-card[data-partner="swaks"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="%23e94b3c" text-anchor="middle">SWAKS</text></svg>');
+}
+
+.partner-card[data-partner="terre2"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="%23e94b3c" text-anchor="middle">TERRE²</text></svg>');
+}
+
+.partner-card[data-partner="the-hoard"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="%23e94b3c" text-anchor="middle">THE HOARD</text></svg>');
+}
+
+.partner-card[data-partner="troll-lord"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="%23e94b3c" text-anchor="middle">TROLL LORD GAME</text></svg>');
+}
+
+.partner-card[data-partner="wargame-spirit"]::before {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="100" y="35" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="%23e94b3c" text-anchor="middle">WARGAME SPIRIT</text></svg>');
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1rem;
+    }
+    
+    .partner-card {
+        min-height: 110px;
+        padding: 1.5rem 1rem;
+    }
 }
 
 /* ===== ALERT BOX ===== */
